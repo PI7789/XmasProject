@@ -50,7 +50,6 @@ def Booking(request):
 
         form = BookingForm(updated_request)
 
-        
         if form.is_valid():
             obj = form.save(commit=False)
             booking_total_cost = int(obj.booking_adults) * 20 \
@@ -76,3 +75,10 @@ def Booking(request):
 
 def index(request):
     return render(request, 'pages/index.html')
+
+@login_required(login_url="login")
+def dashboard(request):
+    tablestuff = Booking.objects.all()
+    context = {'records': tablestuff}
+
+    return render(request, 'pages/dashboard.html', context=context)
