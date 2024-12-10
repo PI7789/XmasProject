@@ -1,5 +1,7 @@
 {% extends 'pages/base.html' %}
 
+{% load static %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -8,10 +10,11 @@
     <form method="POST" autocomplete="OFF">
     {% csrf_token %}
     {{Booking_form|crispy}}
-
-    <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Book </button>
+    <h2 id="hotel_output" >Booking cost : £0</h2>
+    <button type="submit" id="booking_button" class="btn btn-primary w-100 btn-block p-2"> Book </button>
     
     </form>
 </div>
 
+<script src={% static 'js/booking.js' %}></script>
 {% endblock %}
