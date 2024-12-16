@@ -1,0 +1,34 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<table class="table">
+
+    <thead class="table-primary">
+        <tr scope="col"> Date Booked: </tr>
+        <tr scope="col"> Adult Number: </tr>
+        <tr scope="col"> Children Number: </tr>
+        <tr scope="col"> Pensioner Number: </tr>
+        <tr scope="col"> Price: </tr>
+    </thead>
+<tbody>
+
+    {% if records %}
+        {% for record in records %}
+        <tr>
+
+            <td> {{record.booking_date}} </td>
+            <td> {{record.booking_adults}} </td>
+            <td> {{record.booking_children}} </td>
+            <td> {{record.booking_oap}} </td>
+            <td> {{record.booking_total_cost}} </td>
+            
+
+        </tr>
+
+</tbody>
+</table>
+
+{% endblock %}

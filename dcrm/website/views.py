@@ -39,7 +39,7 @@ def Login(request):
     return render(request,'pages/login.html', context=context)
 
 @login_required(login_url = "login")
-def Booking(request):
+def Bookings(request):
     form = BookingForm()
 
     
