@@ -3,10 +3,11 @@ stage 1
 - login form ✔
 - booking form ✔
 - payment form 
-- dashboard booking table WIP
-- profile form
+- dashboard booking table ✔
+- profile form WIP
 - profile update form
 - booking price changing based on the path taken.
+- log out function
 
 
 

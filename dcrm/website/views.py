@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm, LoginForm, BookingForm
+from .forms import RegisterForm, LoginForm, BookingForm, ProfileForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
@@ -78,7 +78,23 @@ def index(request):
 
 @login_required(login_url="login")
 def dashboard(request):
-    tablestuff = Booking.objects.all()
+    tablestuff = Booking.objects.filter(booking_user_id_id=request.user)
     context = {'records': tablestuff}
 
     return render(request, 'pages/dashboard.html', context=context)
+
+@login_required(login_url="login")
+def logout(request):
+    auth.logout(request)
+
+    return redirect('')
+
+@login_required(login_url="login")
+def profile(request, pk):
+    form = ProfileForm
+    
+    profilestuff = Custom_User.objects.get(id=pk)
+
+    context = {'profiledb': profilestuff}
+
+    return render(request, 'pages/profile.html', context=context)

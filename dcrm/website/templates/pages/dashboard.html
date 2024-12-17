@@ -7,24 +7,27 @@
 <table class="table">
 
     <thead class="table-primary">
-        <tr scope="col"> Date Booked: </tr>
-        <tr scope="col"> Adult Number: </tr>
-        <tr scope="col"> Children Number: </tr>
-        <tr scope="col"> Pensioner Number: </tr>
-        <tr scope="col"> Price: </tr>
+        <th scope="col"> ID (remove): </th>
+        <th scope="col"> Date Booked: </th>
+        <th scope="col"> Adult Number: </th>
+        <th scope="col"> Children Number: </th>
+        <th scope="col"> Pensioner Number: </th>
+        <th scope="col"> Price: </th>
     </thead>
 <tbody>
 
     {% if records %}
         {% for record in records %}
         <tr>
-
+            <td> {{record.booking_user_id_id}} </td>
             <td> {{record.booking_date}} </td>
             <td> {{record.booking_adults}} </td>
             <td> {{record.booking_children}} </td>
             <td> {{record.booking_oap}} </td>
             <td> {{record.booking_total_cost}} </td>
             
+            {% endfor %}
+        {% endif %}
 
         </tr>
 
