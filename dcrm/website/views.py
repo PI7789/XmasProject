@@ -90,11 +90,23 @@ def logout(request):
     return redirect('')
 
 @login_required(login_url="login")
-def profile(request, pk):
-    form = ProfileForm
-    
-    profilestuff = Custom_User.objects.get(id=pk)
+def profile(request):
+    profilestuff = request.user
 
     context = {'profiledb': profilestuff}
 
     return render(request, 'pages/profile.html', context=context)
+    
+@login_required(login_url="login")
+def updateprofile(request):
+    form = ProfileForm()
+
+    if request.method=="POST":
+
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('profile')
+    context = {'form': form}
+
+    return render(request, 'pages/updateprofile.html', context=context)
