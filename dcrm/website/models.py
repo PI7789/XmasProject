@@ -13,6 +13,7 @@ class Booking(models.Model):
     booking_children = models.IntegerField(default=0)
     booking_oap = models.IntegerField(default=0)
     booking_total_cost = models.FloatField(default=0)
+    booking_path = models.CharField(default = "", max_length=10)
 
 class Payment(models.Model):
     card_num = models.CharField(max_length=16, blank=True)

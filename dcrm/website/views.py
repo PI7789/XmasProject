@@ -41,12 +41,16 @@ def Login(request):
 @login_required(login_url = "login")
 def Bookings(request):
     form = BookingForm()
-
+    
     
     if request.method == "POST":
         print("on booking")
         updated_request = request.POST.copy()
         updated_request.update({'booking_user_id': request.user})
+        if "short_path" in request.POST:
+            
+            valueprice = request.POST['short_path']
+            print(valueprice)
 
         form = BookingForm(updated_request)
 
@@ -56,6 +60,18 @@ def Bookings(request):
             + int(obj.booking_children) * 13 \
             + int(obj.booking_oap) * 17 \
             
+            if valueprice == 20:
+                booking_total_cost += 20
+                obj.booking_path = "Short"
+
+            elif valueprice == 45:
+                booking_total_cost += 45
+                obj.booking_path = "Medium"
+
+            elif valueprice == 60:
+                booking_total_cost += 60
+                obj.booking_path = "Long"
+
             obj.booking_total_cost = booking_total_cost
 
             obj.save()
@@ -99,14 +115,27 @@ def profile(request):
     
 @login_required(login_url="login")
 def updateprofile(request):
-    form = ProfileForm()
+    form = ProfileForm(instance=request.user)
 
     if request.method=="POST":
 
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, instance=request.user)
+
+        print(form.errors)
         if form.is_valid():
+            print("UPDATE PROFILE: Form is valid")
+            print(request.POST)
+            
             form.save()
+            print(form.errors)
+        else:
+            print("UPDATE PROFILE: Form is NOT valid")
+            
+
+
+
         return redirect('profile')
     context = {'form': form}
 
     return render(request, 'pages/updateprofile.html', context=context)
+

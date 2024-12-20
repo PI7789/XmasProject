@@ -1,5 +1,5 @@
 function update_cost(){
-    document.getElementById("booking_button").disabled = true;
+    //document.getElementById("booking_button").disabled = true;
     let output1 = document.getElementById('hotel_output')
     let date = document.getElementById('id_booking_date').value
     let adults = document.getElementById('id_booking_adults').value
@@ -18,4 +18,4 @@ let oaps = document.getElementById('id_booking_oap')
 
 adults.addEventListener("change", update_cost)
 children.addEventListener("change", update_cost)
-oap.addEventListener("change", update_cost)
+oaps.addEventListener("change", update_cost)
