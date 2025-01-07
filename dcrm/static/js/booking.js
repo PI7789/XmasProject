@@ -5,12 +5,16 @@ function update_cost(){
     let adults = document.getElementById('id_booking_adults').value
     let children = document.getElementById('id_booking_children').value
     let oaps = document.getElementById('id_booking_oap').value
+    let short = document.getElementById('id_short_path').value
+    let medium = document.getElementById('id_medium_path').value
+    let long = document.getElementById('id_long_path').value
 
     let price = (adults * 20) + (children * 13) + (oaps * 17)
 
     output1.innerHTML = "Booking cost : £" + price
     
 }
+
 let adults = document.getElementById('id_booking_adults')
 let children = document.getElementById('id_booking_children')
 let oaps = document.getElementById('id_booking_oap')
