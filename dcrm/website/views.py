@@ -50,8 +50,13 @@ def Bookings(request):
         if "short_path" in request.POST:
             
             valueprice = request.POST['short_path']
-            print(valueprice)
+        elif "medium_path" in request.POST:
 
+            valueprice = request.POST['medium_path']
+
+        elif "long_path" in request.POST:
+
+            valueprice = request.POST['long_path']
         form = BookingForm(updated_request)
 
         if form.is_valid():
@@ -60,22 +65,24 @@ def Bookings(request):
             + int(obj.booking_children) * 13 \
             + int(obj.booking_oap) * 17 \
             
-            if valueprice == 20:
+            if valueprice == "short_path":
                 booking_total_cost += 20
-                obj.booking_path = "Short"
+                booking_path = "Short"
 
-            elif valueprice == 45:
-                booking_total_cost += 45
-                obj.booking_path = "Medium"
+            elif valueprice == "medium_path":
+                booking_total_cost += 35
+                booking_path = "Medium"
 
-            elif valueprice == 60:
-                booking_total_cost += 60
-                obj.booking_path = "Long"
+            elif valueprice == "long_path":
+                booking_total_cost += 50
+                booking_path = "Long"
+            
 
             obj.booking_total_cost = booking_total_cost
+            obj.booking_path = booking_path
 
             obj.save()
-           
+        
             
 
             return redirect('') 
