@@ -6,8 +6,9 @@ stage 1
 - dashboard booking table ✔
 - profile form ✔
 - profile update form ✔
-- booking price changing based on the path taken. 
+- booking price changing based on the path taken. ✔
 - log out function ✔
+- Weather API WIP
 
 
 

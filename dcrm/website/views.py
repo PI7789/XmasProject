@@ -4,6 +4,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Custom_User, Booking
+import requests
 # Create your views here.
 
 def Register(request):
@@ -76,6 +77,7 @@ def Bookings(request):
             elif valueprice == "long_path":
                 booking_total_cost += 50
                 booking_path = "Long"
+
             
 
             obj.booking_total_cost = booking_total_cost
@@ -146,3 +148,24 @@ def updateprofile(request):
 
     return render(request, 'pages/updateprofile.html', context=context)
 
+def api(request):
+    api_key = 'XJ5M8W629NUZWX4UFYWER9SKS'
+    city = "Lapland"
+
+    url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}/?key={api_key}"
+    response = requests.get(url)
+    data = response.json()
+
+    temp = data['days'][0]['temp']
+    celsius = (temp - 32) * 5 / 9
+    celsius1 = round(celsius, 2)
+    description = data['days'][0]['conditions']
+    icon_code = data['days'][0]['icon']
+
+    context = {
+            'temperature': celsius1,
+            'description': description,
+            'icon' : icon_code,
+        }
+       
+    return render(request, 'pages/weather.html' , context= context)
