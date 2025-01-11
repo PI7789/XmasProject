@@ -1,0 +1,19 @@
+{% load  static %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand text-dark" href="#">North Pole Inc</a>
+  {% if user.is_authenticated %}
+  <li class="nav-item">
+    <a class="btn navbtn" href="#">Register23</a>
+  </li>
+  {% else %}
+  <li class="nav-item">
+    <a class="btn navbtn" href="#">Register</a>
+  </li>
+  {% endif %}
+</nav>
+{% endblock %}
+
+
+

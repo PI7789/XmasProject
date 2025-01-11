@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Custom_User, Booking
 import requests
+import datetime
 # Create your views here.
 
 def Register(request):
@@ -150,22 +151,28 @@ def updateprofile(request):
 
 def api(request):
     api_key = 'XJ5M8W629NUZWX4UFYWER9SKS'
-    city = "Lapland"
+    city = "Rovaniemi"
 
     url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}/?key={api_key}"
     response = requests.get(url)
     data = response.json()
 
-    temp = data['days'][0]['temp']
-    celsius = (temp - 32) * 5 / 9
-    celsius1 = round(celsius, 2)
-    description = data['days'][0]['conditions']
-    icon_code = data['days'][0]['icon']
+    # Todays info
 
+    forecast = []
+
+    for x in range(0,7):
+        Weather_Data = {
+        'temp' : data['days'][x]['temp'],
+        'icon_code' : data['days'][x]['icon'],
+        'desc' : data['days'][x]['conditions'],
+        'feel' : data['days'][x]['feelslike'],
+        }
+        forecast.append(Weather_Data)
+    print(forecast)
     context = {
-            'temperature': celsius1,
-            'description': description,
-            'icon' : icon_code,
+        'forecast' : forecast
+           
         }
        
     return render(request, 'pages/weather.html' , context= context)

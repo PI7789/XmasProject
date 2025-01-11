@@ -1,14 +1,24 @@
-stage 1
+Stage 1 Almost Complete
+
 - register form ✔
 - login form ✔
 - booking form ✔
-- payment form 
+- payment form  - waiting for slideshow
 - dashboard booking table ✔
 - profile form ✔
 - profile update form ✔
 - booking price changing based on the path taken. ✔
 - log out function ✔
-- Weather API WIP
+- Weather API ✔
+
+Stage 2 
+
+- Navbar
+- crispy forms for every form
+- containers and cards for forms
+- api bar
+- errorlist change colour
+- profile delete function + confirmation page
 
 
 
