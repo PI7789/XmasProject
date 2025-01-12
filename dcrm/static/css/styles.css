@@ -5,3 +5,23 @@
 .navbtn { 
     background-color: blue;
 }
+
+.navcolour{
+  background-color: aqua;
+}
+
+.form1{
+  background-color: bisque;
+  
+}
+
+/* the api navbar: */
+
+.apinav{
+  display: flexbox;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #37ec26;
+  color: white;
+  padding: 10px 20px;
+}

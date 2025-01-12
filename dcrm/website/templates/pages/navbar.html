@@ -1,15 +1,35 @@
 {% load  static %}
 
 {% block content %}
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navcolour">
   <a class="navbar-brand text-dark" href="#">North Pole Inc</a>
   {% if user.is_authenticated %}
   <li class="nav-item">
-    <a class="btn navbtn" href="#">Register23</a>
+    <a class="btn navbtn" href="{% url 'logout' %}">Log Out</a>
+  </li>
+  &nbsp; &nbsp; &nbsp;
+  <li class="nav-item">
+    <a class="btn navbtn" href="{% url 'booking' %}">Book</a>
+  </li>
+  &nbsp; &nbsp; &nbsp;
+  <li class="nav-item">
+    <a class="btn navbtn" href="#">Guides</a>
+  </li>
+  &nbsp; &nbsp; &nbsp;
+  <li class="nav-item">
+    <a class="btn navbtn" href="{% url 'dashboard' %}">Dashboard</a>
+  </li>
+  &nbsp; &nbsp; &nbsp;
+  <li class="nav-item">
+    <a class="btn navbtn" href="{% url 'profile' %}">Profile</a>
   </li>
   {% else %}
   <li class="nav-item">
-    <a class="btn navbtn" href="#">Register</a>
+    <a class="btn navbtn" href="{% url 'login' %}">Log In</a>
+  </li>
+  &nbsp; &nbsp; &nbsp;
+  <li class="nav-item">
+    <a class="btn navbtn" href="{% url 'register' %}">Register</a>
   </li>
   {% endif %}
 </nav>

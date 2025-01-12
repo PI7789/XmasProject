@@ -1,13 +1,18 @@
 {% extends 'pages/base.html' %}
 
 {% load static %}
+
 {% block content %}
 
-{{forecast.1.temp}}
+{% comment %} {{forecast.1.temp}}
 {{forecast.1.desc}}
 {{forecast.1.feel}}
 
 
-<img id="icon1" src="{% static 'icons/'%}{{forecast.1.icon_code}}.png">
+<img id="icon1" src="{% static 'icons/'%}{{forecast.1.icon_code}}.png"> {% endcomment %}
+
+<div class="apinav">
+
+</div>
 
 {% endblock%}

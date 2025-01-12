@@ -1,11 +1,16 @@
 {% extends 'pages/base.html' %}
 
-{% block content %}
+{% load static %}
 
+{% block content %}
+<div class = "container form1">
 <p> <strong> User Name: </strong>{{profiledb.username}} </p>
 <p> <strong> First Name: </strong>{{profiledb.first_name}} </p>
 <p> <strong> Last Name: </strong>{{profiledb.last_name}} </p>
 <p> <strong> Email Address: </strong>{{profiledb.email}} </p>
 <p> <strong> Phone Number: </strong>{{profiledb.phonenum}} </p>
 
+<a class="btn btn-success" href="{% url 'update' %}"> Update Profile  </a>
+<a class="btn btn-danger" href="{% url 'update' %}"> Delete Profile  </a>
+</div>
 {% endblock %}
