@@ -18,10 +18,32 @@
 /* the api navbar: */
 
 .apinav{
-  display: flexbox;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #37ec26;
-  color: white;
-  padding: 10px 20px;
+  height : 400px;
+  width : 600px;
+  background-color: azure;
+}
+.top{
+  width : 100%;
+  height: 60px;
+  background-color: blue;
+}
+
+.tempbox{
+  width : 60%;
+  background-color: bisque;
+}
+
+.feelbox{
+  width: 40%;
+  background-color: brown;
+}
+
+.iconbox{
+  height: 180px;
+  background-color: blueviolet;
+}
+
+.descbox{
+  height: 60px;
+  background-color: aquamarine;
 }
