@@ -4,21 +4,66 @@
 
 {% block content %}
 
-{% comment %} {{forecast.1.temp}}
-{{forecast.1.desc}}
-{{forecast.1.feel}}
 
 
-<img id="icon1" src="{% static 'icons/'%}{{forecast.1.icon_code}}.png"> {% endcomment %}
 
-<div class="apinav">
-    <div class="top">
-        <div class="tempbox">
-        <div class="feelbox">
+
+<div class="weatherbar"> 
+    <div class="apinav"> 
+        <div class="top">
+            <div class="tempbox">{{forecast.0.temp}} C</div>
+            <div class="feelbox">{{day.0}}</div>
+        </div>
+        <div class="iconbox"><img id="icon1" src="{% static 'icons/'%}{{forecast.0.icon_code}}.png"> </div>
+        <div class="descbox">{{forecast.0.desc}}</div> 
     </div>
-    <div class="iconbox">
+    <div class="apinav"> 
+        <div class="top">
+            <div class="tempbox">{{forecast.1.temp}} C</div>
+            <div class="feelbox">{{day.1}}</div>
+        </div>
+        <div class="iconbox"><img id="icon1" src="{% static 'icons/'%}{{forecast.1.icon_code}}.png"> </div>
+        <div class="descbox">{{forecast.1.desc}}</div> 
     </div>
-    <div class="descbox">
+    <div class="apinav"> 
+        <div class="top">
+            <div class="tempbox">{{forecast.2.temp}} C</div>
+            <div class="feelbox">{{day.2}}</div>
+        </div>
+        <div class="iconbox"><img id="icon1" src="{% static 'icons/'%}{{forecast.2.icon_code}}.png"> </div>
+        <div class="descbox">{{forecast.2.desc}}</div> 
+    </div>
+    <div class="apinav"> 
+        <div class="top">
+            <div class="tempbox">{{forecast.3.temp}} C</div>
+            <div class="feelbox">{{day.3}}</div>
+        </div>
+        <div class="iconbox"><img id="icon1" src="{% static 'icons/'%}{{forecast.3.icon_code}}.png"> </div>
+        <div class="descbox">{{forecast.3.desc}}</div> 
+    </div>
+    <div class="apinav"> 
+        <div class="top">
+            <div class="tempbox">{{forecast.4.temp}} C</div>
+            <div class="feelbox">{{day.4}}</div>
+        </div>
+        <div class="iconbox"><img id="icon1" src="{% static 'icons/'%}{{forecast.4.icon_code}}.png"> </div>
+        <div class="descbox">{{forecast.4.desc}}</div> 
+    </div>
+    <div class="apinav"> 
+        <div class="top">
+            <div class="tempbox">{{forecast.5.temp}} C</div>
+            <div class="feelbox">{{day.5}}</div>
+        </div>
+        <div class="iconbox"><img id="icon1" src="{% static 'icons/'%}{{forecast.5.icon_code}}.png"> </div>
+        <div class="descbox">{{forecast.5.desc}}</div> 
+    </div>
+    <div class="apinav"> 
+        <div class="top">
+            <div class="tempbox">{{forecast.6.temp}} C</div>
+            <div class="feelbox">{{day.6}}</div>
+        </div>
+        <div class="iconbox"><img id="icon1" src="{% static 'icons/'%}{{forecast.6.icon_code}}.png"> </div>
+        <div class="descbox">{{forecast.6.desc}}</div> 
     </div>
 </div>
 

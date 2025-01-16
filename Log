@@ -16,8 +16,8 @@ Stage 2
 - Navbar ✔
 - crispy forms for every form
 - containers and cards for forms
-- api bar
-- errorlist change colour
+- api bar - WIP - complete but cant load like a navbar
+- errorlist change colour ✔
 - profile delete function + confirmation page
 
 

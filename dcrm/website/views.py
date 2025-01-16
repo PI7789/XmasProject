@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Custom_User, Booking
 import requests
-import datetime
+from datetime import datetime,timedelta
 # Create your views here.
 
 def Register(request):
@@ -157,21 +157,32 @@ def api(request):
     response = requests.get(url)
     data = response.json()
 
-    # Todays info
+    todayunformatted = datetime.now()
+    
+    
+
+    daystime = []
+
+    for y in range(0,7):
+        day = todayunformatted + timedelta(days=y)
+        today = day.strftime("%b %d")
+        daystime.append(today)
+
 
     forecast = []
 
     for x in range(0,7):
+        celcius = (data['days'][x]['temp'] - 32) * 5 / 9
         Weather_Data = {
-        'temp' : data['days'][x]['temp'],
+        'temp' : round(celcius, 1),
         'icon_code' : data['days'][x]['icon'],
         'desc' : data['days'][x]['conditions'],
-        'feel' : data['days'][x]['feelslike'],
         }
         forecast.append(Weather_Data)
-    print(forecast)
+
     context = {
-        'forecast' : forecast
+        'forecast' : forecast,
+        'day' : daystime, 
            
         }
        
