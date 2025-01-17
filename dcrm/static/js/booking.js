@@ -30,6 +30,7 @@ function update_cost(){
         document.getElementById("short_path").disabled = false;
         document.getElementById("medium_path").disabled = false; 
         document.getElementById("long_path").disabled = false;
+        document.getElementById("booking_button").disabled = true;
     }
     let price = (adults * 20) + (children * 13) + (oaps * 17) + routevalue
 

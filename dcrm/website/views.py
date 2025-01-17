@@ -16,8 +16,10 @@ def Register(request):
         if form.is_valid():
             form.save()
             return redirect('login')
-        
-    context = {'form': form}
+    forecast,daystime = api()
+    context = {'form': form,
+               'forecast': forecast,
+               'day': daystime}
 
     return render(request,'pages/Register.html', context=context)
     
@@ -36,8 +38,11 @@ def Login(request):
             if user is not None:
                 auth.login(request, user)
                 return redirect('')
+    forecast,daystime = api()
+    context = {'forecast': forecast,
+               'day': daystime,
+               'login_form': form}
     
-    context = {'login_form': form}
     return render(request,'pages/login.html', context=context)
 
 @login_required(login_url = "login")
@@ -93,19 +98,26 @@ def Bookings(request):
             print("wrong")
 
             return redirect('booking')
-
-
-    context = {'Booking_form': form}
+    forecast,daystime = api()
+    context = {'forecast': forecast,
+               'day': daystime,
+               'Booking_form': form}
 
     return render(request, 'pages/booking.html', context=context, )
 
 def index(request):
-    return render(request, 'pages/index.html')
+    forecast, daystime = api()
+    context = {'forecast': forecast,
+               'day': daystime}
+    return render(request, 'pages/index.html', context=context)
 
 @login_required(login_url="login")
 def dashboard(request):
     tablestuff = Booking.objects.filter(booking_user_id_id=request.user)
-    context = {'records': tablestuff}
+    forecast, daystime = api()
+    context = {'forecast': forecast,
+               'day': daystime,
+               'records': tablestuff}
 
     return render(request, 'pages/dashboard.html', context=context)
 
@@ -118,8 +130,10 @@ def logout(request):
 @login_required(login_url="login")
 def profile(request):
     profilestuff = request.user
-
-    context = {'profiledb': profilestuff}
+    forecast, daystime = api()
+    context = {'forecast': forecast,
+               'day': daystime,
+               'profiledb': profilestuff}
 
     return render(request, 'pages/profile.html', context=context)
     
@@ -145,11 +159,14 @@ def updateprofile(request):
 
 
         return redirect('profile')
-    context = {'form': form}
+    forecast, daystime = api()
+    context = {'forecast': forecast,
+               'day': daystime,
+               'form': form}
 
     return render(request, 'pages/updateprofile.html', context=context)
 
-def api(request):
+def api():
     api_key = 'XJ5M8W629NUZWX4UFYWER9SKS'
     city = "Rovaniemi"
 
@@ -180,10 +197,6 @@ def api(request):
         }
         forecast.append(Weather_Data)
 
-    context = {
-        'forecast' : forecast,
-        'day' : daystime, 
-           
-        }
+    
        
-    return render(request, 'pages/weather.html' , context= context)
+    return forecast, daystime

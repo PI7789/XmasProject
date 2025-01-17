@@ -15,23 +15,17 @@
 }
 
 .form1{
-  background-color: bisque;
+  background-color: rgb(250, 36, 36);
+  border:3px solid black;
+}
   
-}
-
-/* the api navbar: */
-
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-}
 
 .apinav{
   height : 120px;
   width : 200px;
   flex-shrink: 0; 
   border:2px dotted black;
+  background-color: rgb(4, 158, 12);
 }
 .top{
   width : 100%;
@@ -68,16 +62,53 @@ body, html {
 
 .weatherbar{
   display: flex;
-  gap: 40px;
-  width: 87vw;
+  gap: 10px;
+  width: 100vw;
   box-sizing: border-box;
   position: relative; top: 0;
-  padding: 10px 15px;
+  
   margin: 0 auto; 
   background-color: rgb(3, 136, 9);
+  justify-content:space-evenly;
 }
 
-.container {
-  margin: 0;
-  padding: 0;
+
+
+.dashtable{
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.dashwords{
+  margin-left: 50px;
+}
+
+.LongPathBox{
+  height:150px;
+  width:650px;
+  border:2px solid black;
+}
+
+.MediumPathBox{
+  height:150px;
+  width:650px;
+  border:2px solid black;
+}
+
+.ShortPathBox{
+  height:150px;
+  width:650px;
+  border:2px solid black;
+}
+
+.bookingform1{
+  height:1000px;
+  width: 100%;
+}
+
+.form2{
+  background-color: rgb(250, 36, 36);
+  border:3px solid black;
+  margin-left: 0;
+  width:25vw;
 }

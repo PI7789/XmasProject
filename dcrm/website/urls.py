@@ -17,5 +17,4 @@ urlpatterns = [
 
     path('update', views.updateprofile, name="update"),
 
-    path('api',views.api,name="api"),
 ]

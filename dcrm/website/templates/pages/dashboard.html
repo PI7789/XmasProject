@@ -3,8 +3,10 @@
 {% load static %}
 
 {% block content %}
+<br>
+<h5 class="dashwords"> Your Bookings: </h5>
 
-<table class="table">
+<table class="table dashtable">
 
     <thead class="table-primary">
         <th scope="col"> Date Booked: </th>
@@ -23,7 +25,7 @@
             <td> {{record.booking_adults}} </td>
             <td> {{record.booking_children}} </td>
             <td> {{record.booking_oap}} </td>
-            <td> {{record.booking_total_cost}} </td>
+            <td> £{{record.booking_total_cost}}</td>
             <td> {{record.booking_path}} </td>
             
             {% endfor %}
