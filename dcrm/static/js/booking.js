@@ -1,5 +1,4 @@
 function update_cost(){
-    //document.getElementById("booking_button").disabled = true;
     let output1 = document.getElementById('hotel_output')
     let adults = document.getElementById('id_booking_adults').value
     let children = document.getElementById('id_booking_children').value
@@ -7,12 +6,15 @@ function update_cost(){
     let short = document.getElementById('short_path')
     let medium = document.getElementById('medium_path')
     let long = document.getElementById('long_path')
+    let date = 
+
 
     routevalue = 0
     if (short.checked) {
         routevalue += 20
         document.getElementById("medium_path").disabled = true;
         document.getElementById("long_path").disabled = true;
+
     } 
     
     else if (medium.checked) {
@@ -30,13 +32,22 @@ function update_cost(){
         document.getElementById("short_path").disabled = false;
         document.getElementById("medium_path").disabled = false; 
         document.getElementById("long_path").disabled = false;
+    }
+
+    if (adults < 1 && children < 1  && oaps < 1){
         document.getElementById("booking_button").disabled = true;
     }
+    else{
+        document.getElementById("booking_button").disabled = false;
+    }
     let price = (adults * 20) + (children * 13) + (oaps * 17) + routevalue
+
+
 
     output1.innerHTML = "Booking cost : £" + price
     
 }
+
 
 let adults = document.getElementById('id_booking_adults')
 let children = document.getElementById('id_booking_children')

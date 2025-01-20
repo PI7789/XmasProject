@@ -84,31 +84,34 @@
 }
 
 .LongPathBox{
-  height:150px;
-  width:650px;
+  height:33%;
+  width:100%;
   border:2px solid black;
 }
 
 .MediumPathBox{
-  height:150px;
-  width:650px;
+  height:33%;
+  width:100%px;
   border:2px solid black;
 }
 
 .ShortPathBox{
-  height:150px;
-  width:650px;
+  height:33%;
+  width:100%;
   border:2px solid black;
 }
 
 .bookingform1{
-  height:1000px;
+  height:500px;
   width: 100%;
+  margin-right: 0;
 }
 
 .form2{
   background-color: rgb(250, 36, 36);
   border:3px solid black;
   margin-left: 0;
-  width:25vw;
+  width:100%;
+  gap: 0px;
+  height:99%;
 }
