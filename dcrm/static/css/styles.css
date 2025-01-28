@@ -10,6 +10,10 @@
     background-color: blue;
 }
 
+.navbtn:hover{
+  background-color: rgb(0, 0, 146); 
+}
+
 .navcolour{
   background-color: aqua;
 }
@@ -77,28 +81,33 @@
 .dashtable{
   margin-top: 50px;
   margin-left: 50px;
+  background-color: azure;
 }
 
 .dashwords{
   margin-left: 50px;
+  background-color: azure;
 }
 
 .LongPathBox{
   height:33%;
   width:100%;
   border:2px solid black;
+  background-color: azure;
 }
 
 .MediumPathBox{
   height:33%;
-  width:100%px;
+  width:100%;
   border:2px solid black;
+  background-color: azure;
 }
 
 .ShortPathBox{
   height:33%;
   width:100%;
   border:2px solid black;
+  background-color: azure;
 }
 
 .bookingform1{
@@ -114,4 +123,13 @@
   width:100%;
   gap: 0px;
   height:99%;
+}
+
+.imgcontainer{
+  position: fixed;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }

@@ -23,7 +23,7 @@
             {% csrf_token %}
             {{Booking_form|crispy}}
             <h2 id="hotel_output" >Booking cost : £0</h2>
-            <br> <br>
+            <br> <br> 
             <button type="submit" disabled="True" id="booking_button" class="btn btn-primary w-100 btn-block p-2"> Book </button> 
             <br>
             </form>
@@ -32,5 +32,5 @@
 </div>
 
 
-<script src={% static 'js/booking.js' %}></script>
+<script src="{% static 'js/booking.js' %}" ></script>
 {% endblock %}

@@ -26,7 +26,7 @@ class BookingForm(forms.ModelForm):
 
         widgets = {'booking_date': forms.DateInput(attrs={'type': 'date'}),
                    'booking_total_cost' : forms.HiddenInput(),
-                   'booking_user_id': forms.HiddenInput(),}#
+                   'booking_user_id': forms.HiddenInput(),}
         
 class ProfileForm(forms.ModelForm):
     class Meta:
