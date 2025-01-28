@@ -1,5 +1,5 @@
 function update_cost(){
-    
+    console.log("working function ++++")
     let output1 = document.getElementById('hotel_output')
     let adults = document.getElementById('id_booking_adults').value
     let children = document.getElementById('id_booking_children').value
@@ -9,7 +9,7 @@ function update_cost(){
     let long = document.getElementById('long_path')
     let unchecked = 1 
 
-    console.log(unchecked)
+    
     
     routevalue = 0
     if (short.checked) {
@@ -17,6 +17,7 @@ function update_cost(){
         document.getElementById("medium_path").disabled = true;
         document.getElementById("long_path").disabled = true;
         unchecked = 0
+        console.log("short checked")
 
     } 
     
@@ -48,12 +49,18 @@ function update_cost(){
         document.getElementById("booking_button").disabled = true; 
     }
     let price = (adults * 20) + (children * 13) + (oaps * 17) + routevalue
-}
 
 
+    if (unchecked == 1){
+        output1.innerHTML = "Booking cost : Route Not Selected"
+    }
+    else if (adults < 1){
+        output1.innerHTML = "Booking cost : Children and Pensioners need to be accompanied by at least one adult"
+    } else{
     output1.innerHTML = "Booking cost : £" + price
-    
-
+    }
+    console.log(unchecked)
+}
 
 
 let adults = document.getElementById('id_booking_adults')

@@ -5,25 +5,25 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<form class="form2" method="POST" autocomplete="OFF">
 <div class="row">
     <div class = "col">
-        <div class="LongPathBox">
+        <div class="LongPathBox" style = "background-image:url('{% static 'Imagery/path1.png' %}')">
             <input type="checkbox"id ="long_path" name = "long_path" value = "long_path"> long path </input>
         </div>
-        <div class="MediumPathBox">
+        <div class="MediumPathBox" style = "background-image:url('{% static 'Imagery/path2.png' %}')">
             <input type="checkbox"id ="medium_path" name = "medium_path" value= "medium_path"> medium path </input>
         </div>
-        <div class="ShortPathBox">
+        <div class="ShortPathBox" style = "background-image:url('{% static 'Imagery/path3.png' %}')">
             <input type="checkbox"id ="short_path" name = "short_path" value = "short_path"> short path </input>
         </div>
     </div>
     <div class = "col">
         <div class="bookingform1">
-            <form class="form2" method="POST" autocomplete="OFF">
+            
             {% csrf_token %}
             {{Booking_form|crispy}}
             <h2 id="hotel_output" >Booking cost : £0</h2>
-            <br> <br> 
             <button type="submit" disabled="True" id="booking_button" class="btn btn-primary w-100 btn-block p-2"> Book </button> 
             <br>
             </form>

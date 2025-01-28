@@ -54,11 +54,16 @@ def Bookings(request):
         print("on booking")
         updated_request = request.POST.copy()
         updated_request.update({'booking_user_id': request.user})
+
+        valueprice = "nothing"
+        print(request.POST)
+
         if "short_path" in request.POST:
+            print("Short Path")
             
             valueprice = request.POST['short_path']
         elif "medium_path" in request.POST:
-
+            print("Medium Path")
             valueprice = request.POST['medium_path']
 
         elif "long_path" in request.POST:
@@ -66,6 +71,7 @@ def Bookings(request):
             valueprice = request.POST['long_path']
         form = BookingForm(updated_request)
 
+        print("VAULUE PRICE IS", valueprice)
         if form.is_valid():
             obj = form.save(commit=False)
             booking_total_cost = int(obj.booking_adults) * 20 \
